@@ -1,4 +1,4 @@
-import nextEnvPkg from "@next/env";
+import * as nextEnvPkg from "@next/env";
 import { Vercel } from "@vercel/sdk";
 import assert from "assert";
 import path from "path";
