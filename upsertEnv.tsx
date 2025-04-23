@@ -28,8 +28,10 @@ async function main() {
   await upsertEnvValue("DEMO_VAR", value);
   await writeEnvfile("DEMO_VAR", value);
 
+  console.log("DEMO_VAR", process.env.DEMO_VAR);
   const projectDir = process.cwd();
   nextEnvPkg.loadEnvConfig(projectDir);
+  console.log("DEMO_VAR", process.env.DEMO_VAR);
 }
 
 export function writeEnvfile(key: string, value: string) {
