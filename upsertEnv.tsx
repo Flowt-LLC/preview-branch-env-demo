@@ -29,7 +29,7 @@ async function main() {
   await writeEnvfile("DEMO_VAR", value);
 
   const projectDir = process.cwd();
-  nextEnvPkg.loadEnvConfig(projectDir, false, console, true);
+  nextEnvPkg.loadEnvConfig(projectDir);
 }
 
 export function writeEnvfile(key: string, value: string) {
