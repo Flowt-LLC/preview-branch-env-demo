@@ -2,8 +2,6 @@ import { Vercel } from "@vercel/sdk";
 import assert from "assert";
 
 assert(process.env.VERCEL_ACCESS_TOKEN, "VERCEL_ACCESS_TOKEN is not set");
-assert(process.env.VERCEL_GIT_COMMIT_REF, "VERCEL_GIT_COMMIT_REF is not set");
-assert(process.env.VERCEL_GIT_COMMIT_REF !== "main", "must be a preview build");
 
 const vercel = new Vercel({
   bearerToken: process.env.VERCEL_ACCESS_TOKEN,
@@ -16,6 +14,14 @@ upsertEnvValue("DEMO_VAR").catch((err) => {
 });
 
 async function upsertEnvValue(key: string) {
+  if (
+    !process.env.VERCEL_GIT_COMMIT_REF ||
+    process.env.VERCEL_GIT_COMMIT_REF == "main"
+  ) {
+    console.warn("skipping upsertEnvValue - not a preview build");
+    return;
+  }
+
   const addResponse = await vercel.projects.createProjectEnv({
     idOrName: VERCEL_PROJECT_ID,
     slug: "flowt",
