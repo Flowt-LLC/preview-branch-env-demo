@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "composite": false,
+    "declarationMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
+    "moduleResolution": "NodeNext",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+
+    "outDir": "./dist",
+    "module": "nodenext",
+    "verbatimModuleSyntax": true,
+    "declaration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "paths": {
+      "@api/*": ["./src/*"],
+      "@test/*": ["./test/*"]
+    }
+  },
+  "include": ["src", "bin", "test"]
+}

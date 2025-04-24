@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "tsx ./upsertEnv.tsx && next build",
+    "build": "tsx --tsconfig apitsconfig.json ./upsertEnv.tsx && next build",
     "start": "next start",
     "lint": "next lint"
   },
